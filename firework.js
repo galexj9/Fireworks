@@ -20,19 +20,16 @@ class Firework {
   }
 
   update() {
-    this.life -= 0.5;  //this is just for the particles that super this
+    this.life -= 0.1;  //this is just for the particles that super this
     //physics
-    this.applyForce(gravity);
+    this.acc.add(gravity);
     this.vel.add(this.acc);
     this.pos.add(this.vel);
     this.acc.mult(0); //clears out the acceleration
   }
-  applyForce(force) { //why is this even a serpate function???? no one knows.
-    this.acc.add(force);
-  }
 
   checkDeath() { //no pulse
-    if (this.vel.y > 2 ) {
+    if (this.vel.y > 2 ) { //checks to see if the firework is starting to fall down
       return true;
     } else {
       return false;

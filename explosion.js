@@ -23,8 +23,8 @@
 
 class Particle extends Firework {
   constructor(pos, hue) {
-    super(); //only adds an acceleration stat , necessary for super function calling
-    this.acc = createVector(0,0);
+    super(); //necessary for super function calling
+    this.acc = createVector(0, 0);
     this.pos = pos;
     this.vel = p5.Vector.random2D().mult(10);
     //for the style
@@ -40,7 +40,7 @@ class Particle extends Firework {
     }
   }
   draw() { //draws the brightness as a mapped function of life value
-    fill(this.hue, 180, map(this.life,0,300,0,255));
+    fill(this.hue, 180, map(this.life, 0, 300, 0, 255));
     ellipse(this.pos.x, this.pos.y, this.radius);
   }
 }
